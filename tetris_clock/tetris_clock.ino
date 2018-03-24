@@ -1,14 +1,14 @@
 #define PATTERN4
 #include <Ticker.h>
-#include <P10_matrix.h>
+#include <P10_matrix.h>           // Download from: https://github.com/2dom/P10_matrix, needs https://github.com/adafruit/Adafruit-GFX-Library via library manager
 #include <TimeLib.h>
-#include <NtpClientLib.h>
+#include <NtpClientLib.h>         // https://github.com/arduino-libraries/NTPClient, via library manager
 #include <ESP8266WiFi.h>
 
 // WiFi-Manager
-#include <DNSServer.h>            //Local DNS Server used for redirecting all requests to the configuration portal
-#include <ESP8266WebServer.h>     //Local WebServer used to serve the configuration portal
-#include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
+#include <DNSServer.h>            // Local DNS Server used for redirecting all requests to the configuration portal
+#include <ESP8266WebServer.h>     // Local WebServer used to serve the configuration portal
+#include <WiFiManager.h>          // https://github.com/tzapu/WiFiManager WiFi Configuration Magic
 
 // Local includes
 #include "definitions.h"
