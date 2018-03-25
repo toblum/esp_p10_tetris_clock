@@ -5,7 +5,7 @@
 // Some standard colors
 uint16_t myRED = display.color565(255, 0, 0);
 uint16_t myGREEN = display.color565(0, 255, 0);
-uint16_t myBLUE = display.color565(0, 0, 255);
+uint16_t myBLUE = display.color565(48, 73, 255);
 uint16_t myWHITE = display.color565(255, 255, 255);
 uint16_t myYELLOW = display.color565(255, 255, 0);
 uint16_t myCYAN = display.color565(0, 255, 255);
