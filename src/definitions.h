@@ -27,4 +27,4 @@ WiFiManager wifiManager;        // Global WiFiManager object
 #define P_B 4
 #define P_C 15
 #define P_OE 2
-P10_MATRIX display(P_LAT, P_OE, P_A, P_B, P_C);
+PxMATRIX display(32,16, P_LAT, P_OE,P_A,P_B,P_C);

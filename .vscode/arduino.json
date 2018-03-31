@@ -1,0 +1,5 @@
+{
+    "port": "COM3",
+    "board": "esp8266:esp8266:nodemcuv2",
+    "configuration": "CpuFrequency=80,UploadSpeed=230400,FlashSize=4M3M"
+}
