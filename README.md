@@ -11,3 +11,6 @@ It's also possible to use the Arduino IDE, then you have to install the required
 
 ## Wiring
 This project is based on the famous PxMatrix library. For wiring the matrix, see the excellent instructions [here](https://github.com/2dom/PxMatrix/).
+
+## Building
+You find the 3D printable parts [here](https://www.thingiverse.com/thing:2846368).
