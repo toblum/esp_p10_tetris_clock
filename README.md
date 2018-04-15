@@ -2,7 +2,7 @@
 A tetris clock based on a P10 16x32 RGB matrix and a ESP8266.
 
 
-![alt text](https://j.gifs.com/6RvBDl.gif "Tetris clock animation")
+[![alt text](https://j.gifs.com/6RvBDl.gif "Tetris clock animation")](https://youtu.be/BGmjvfqf_0U)
 ![alt text](http://i68.tinypic.com/2cyfj45.jpg "Tetris clock build")
 
 
