@@ -19,3 +19,9 @@ This project is based on the famous PxMatrix library. For wiring the matrix, see
 The complete build instructions can be found on [instructables](https://www.instructables.com/id/Tetris-Time-on-a-P10-RGB-Matrix-With-ESP8266).
 
 You find the 3D printable parts [here](https://www.thingiverse.com/thing:2846368).
+
+## Enhancement
+* Support for 32x32 displays
+* 12 hour mode [issue](https://github.com/toblum/esp_p10_tetris_clock/issues/2#issuecomment-392286952)
+* Weather forecast
+* Youtube counter
