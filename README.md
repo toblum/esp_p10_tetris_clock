@@ -6,6 +6,8 @@ A tetris clock based on a 16x32 RGB matrix and a ESP8266.
 ![alt text](http://i68.tinypic.com/2cyfj45.jpg "Tetris clock build")
 
 
+Note: Please also have a look on the https://github.com/toblum/TetrisAnimation repo. Brian Lough ported this code to a library and also added text support [in this video](https://www.youtube.com/watch?v=2IejVgrSlWE).
+
 
 ## Installation
 This project is built on [platform.io](http://docs.platformio.org). All dependencies are automatically installed, if you use it. I recommend to use it [together with Visual Studio Code](http://docs.platformio.org/en/latest/ide/vscode.html).
