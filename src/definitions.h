@@ -12,6 +12,7 @@ int8_t minutesTimeZone = 0;     // Minutes difference for time zone
 uint8_t init_state = 0;         // Hold the current state of the initialization process
 String str_display_time = "0000"; // Holds the currently displayed time as string
 bool seconds_odd = false;       // True when the seconds are currently odd
+unsigned long nextDisplayUpdate = millis();
 unsigned long nextNumberUpdate = millis();
 
 // WiFiManager
@@ -22,6 +23,7 @@ WiFiManager wifiManager;        // Global WiFiManager object
 
 
 // Pins for LED MATRIX
+#define PxMATRIX_double_buffer true
 #define P_LAT 16
 #define P_A 5
 #define P_B 4

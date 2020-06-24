@@ -98,7 +98,11 @@ void loop()
 			str_display_time = str_current_time;
 		}
 
-		display_updater();
+		if (now > nextDisplayUpdate) {
+			display_updater();
+
+			nextDisplayUpdate = now + 4;
+		}
 
 		if (now > nextNumberUpdate) {
 			number_updater();
