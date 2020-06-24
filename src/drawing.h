@@ -23,7 +23,7 @@ void drawIntro()
   drawChar("t", 11, 0, myYELLOW);
   drawChar("r", 17, 0, myGREEN);
   drawChar("i", 22, 0, myBLUE);
-  drawChar("s", 27, 0, myRED);
+  drawChar("s", 26, 0, myRED);
 
   drawChar("T", 6, 9, myRED);
   drawChar("i", 11, 9, myWHITE);
