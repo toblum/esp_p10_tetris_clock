@@ -346,7 +346,7 @@ void drawNumbers()
         }
       }
 
-      drawShape(current_fall.blocktype, current_fall.color, current_fall.x_pos + numstates[numpos].x_shift, numstates[numpos].fallindex - 1, rotations);
+      drawShape(current_fall.blocktype, current_fall.color, current_fall.x_pos + numstates[numpos].x_shift, numstates[numpos].fallindex - 1 + numstates[numpos].y_shift, rotations);
       numstates[numpos].fallindex++;
 
       if (numstates[numpos].fallindex > current_fall.y_stop)
@@ -362,7 +362,7 @@ void drawNumbers()
       for (int i = 0; i < numstates[numpos].blockindex; i++)
       {
         fall_instr fallen_block = getFallinstrByNum(numstates[numpos].num_to_draw, i);
-        drawShape(fallen_block.blocktype, fallen_block.color, fallen_block.x_pos + numstates[numpos].x_shift, fallen_block.y_stop - 1, fallen_block.num_rot);
+        drawShape(fallen_block.blocktype, fallen_block.color, fallen_block.x_pos + numstates[numpos].x_shift, fallen_block.y_stop - 1 + numstates[numpos].y_shift, fallen_block.num_rot);
       }
     }
   }

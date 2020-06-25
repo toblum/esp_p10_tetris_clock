@@ -92,7 +92,7 @@ void loop()
 		{
 			Serial.print("Time changed: ");
 			Serial.println(str_current_time);
-			updateTime(str_current_time);
+			updateTime(str_current_time + "4560");
 			str_display_time = str_current_time;
 		}
 

@@ -19,15 +19,21 @@ typedef struct
   int blockindex;  // The index of the brick (as defined in the falling instructions) that is currently falling
   int fallindex;   // y-position of the brick it already has (incrementing with each step)
   int x_shift;     // x-position of the number relative to the matrix where the number should be placed.
+  int y_shift;     // x-position of the number relative to the matrix where the number should be placed.
 } numstate;
 
 // States of the 4 shown numbers
-#define SIZE_NUM_STATES 4
+#define SIZE_NUM_STATES 8
 numstate numstates[SIZE_NUM_STATES] = {
-    {0, 0, 0, 1},
-    {0, 0, 0, 8},
-    {0, 0, 0, 18},
-    {0, 0, 0, 25}};
+    {0, 0, 0, 1, 0},
+    {0, 0, 0, 8, 0},
+    {0, 0, 0, 18, 0},
+    {0, 0, 0, 25, 0},
+    {0, 0, 0, 1, 16},
+    {0, 0, 0, 8, 16},
+    {0, 0, 0, 18, 16},
+    {0, 0, 0, 25, 16}
+};
 
 
 // *********************************************************************
@@ -37,7 +43,7 @@ numstate numstates[SIZE_NUM_STATES] = {
 // *********************************************************************
 // Number 0
 // *********************************************************************
-#define SIZE_NUM_0 13
+#define SIZE_NUM_0 12
 fall_instr num_0[SIZE_NUM_0] = {
     {2, myCYAN, 4, 16, 0},
     {4, myORANGE, 2, 16, 1},

@@ -23,7 +23,7 @@ void updateTime(String str_current_time)
   //  Serial.print(" -> ");
   //  Serial.println(str_current_time);
 
-  for (uint8_t pos = 0; pos < 4; pos++)
+  for (uint8_t pos = 0; pos < SIZE_NUM_STATES; pos++)
   {
     if (str_display_time.charAt(pos) != str_current_time.charAt(pos))
     {
