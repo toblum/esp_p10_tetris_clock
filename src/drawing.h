@@ -375,7 +375,7 @@ void drawNumbers()
 
 
 	// Draw black background for time to avoid overlapping
-	display.fillRect(0, 0, 32, 16, myBLACK);
+	display.fillRect(0, 0, 32, 17, myBLACK);
 
 	// For each number position
 	for (int numpos = 0; numpos < 3; numpos++)
