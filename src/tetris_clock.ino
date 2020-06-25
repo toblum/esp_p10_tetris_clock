@@ -1,4 +1,4 @@
-// #define PATTERN4
+#define double_buffer
 #include <Wire.h>
 #include <Ticker.h>
 #include <PxMatrix.h> // Download from: https://github.com/2dom/PxMatrix/, needs https://github.com/adafruit/Adafruit-GFX-Library via library manager
@@ -26,8 +26,7 @@ void setup()
 	Serial.begin(115200);
 
 	display.begin(16);
-	display.setFastUpdate(true);
-	display.clearDisplay();
+	display.flushDisplay();
 
 	// Draw intro while WiFi is connecting
 	drawIntro();
@@ -46,10 +45,9 @@ void setup()
 
 	init_state = 1;
 
-	display_ticker.attach(0.001, display_updater);
+	display_ticker.attach(0.004, display_updater);
 	yield();
 	delay(2000);
-	display_ticker.detach();
 }
 
 void loop()
@@ -96,12 +94,6 @@ void loop()
 			Serial.println(str_current_time);
 			updateTime(str_current_time);
 			str_display_time = str_current_time;
-		}
-
-		if (now > nextDisplayUpdate) {
-			display_updater();
-
-			nextDisplayUpdate = now + 4;
 		}
 
 		if (now > nextNumberUpdate) {

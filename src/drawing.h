@@ -381,7 +381,7 @@ void drawNumbers()
 void display_updater()
 {
   // ISR for display refresh
-  display.display(30);
+  display.display(60);
 }
 
 // *********************************************************************
@@ -389,7 +389,7 @@ void display_updater()
 // *********************************************************************
 void number_updater()
 {
-  display.clearDisplay();
+  display.fillScreen(myBLACK);
   drawNumbers();
   display.showBuffer();
 }
