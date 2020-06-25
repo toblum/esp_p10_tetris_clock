@@ -5,21 +5,21 @@
 // Type that describes how a brick is falling down
 typedef struct
 {
-  int blocktype;  // Number of the block type
-  uint16_t color; // Color of the brick
-  int x_pos;      // x-position (starting from the left number staring point) where the brick should be placed
-  int y_stop;     // y-position (1-16, where 16 is the last line of the matrix) where the brick should stop falling
-  int num_rot;    // Number of 90-degree (clockwise) rotations a brick is turned from the standard position
+    int blocktype;  // Number of the block type
+    uint16_t color; // Color of the brick
+    int x_pos;      // x-position (starting from the left number starting point) where the brick should be placed
+    int y_stop;     // y-position (1-16, where 16 is the last line of the matrix) where the brick should stop falling
+    int num_rot;    // Number of 90-degree (clockwise) rotations a brick is turned from the standard position
 } fall_instr;
 
 // Type that describes the current state of a drawed number
 typedef struct
 {
-  int num_to_draw; // Number to draw (0-9)
-  int blockindex;  // The index of the brick (as defined in the falling instructions) that is currently falling
-  int fallindex;   // y-position of the brick it already has (incrementing with each step)
-  int x_shift;     // x-position of the number relative to the matrix where the number should be placed.
-  int y_shift;     // x-position of the number relative to the matrix where the number should be placed.
+    int num_to_draw; // Number to draw (0-9)
+    int blockindex;  // The index of the brick (as defined in the falling instructions) that is currently falling
+    int fallindex;   // y-position of the brick it already has (incrementing with each step)
+    int x_shift;     // x-position of the number relative to the matrix where the number should be placed.
+    int y_shift;     // y-position of the number relative to the matrix where the number should be placed.
 } numstate;
 
 // States of the 4 shown numbers
@@ -32,9 +32,7 @@ numstate numstates[SIZE_NUM_STATES] = {
     {0, 0, 0, 1, 16},
     {0, 0, 0, 8, 16},
     {0, 0, 0, 18, 16},
-    {0, 0, 0, 25, 16}
-};
-
+    {0, 0, 0, 25, 16}};
 
 // *********************************************************************
 // Fall instructions for all numbers
