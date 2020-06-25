@@ -295,75 +295,92 @@ int getBocksizeByNum(int num)
 	}
 }
 
+void drawSingleNumber(int numpos)
+{
+	// Draw falling shape
+	if (numstates[numpos].blockindex < getBocksizeByNum(numstates[numpos].num_to_draw))
+	{
+		fall_instr current_fall = getFallinstrByNum(numstates[numpos].num_to_draw, numstates[numpos].blockindex);
+
+		// Handle variations of rotations
+		uint8_t rotations = current_fall.num_rot;
+		if (rotations == 1)
+		{
+			if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 2))
+			{
+				rotations = 0;
+			}
+		}
+		if (rotations == 2)
+		{
+			if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 3))
+			{
+				rotations = 0;
+			}
+			if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 3 * 2))
+			{
+				rotations = 1;
+			}
+		}
+		if (rotations == 3)
+		{
+			if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 4))
+			{
+				rotations = 0;
+			}
+			if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 4 * 2))
+			{
+				rotations = 1;
+			}
+			if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 4 * 3))
+			{
+				rotations = 2;
+			}
+		}
+
+		drawShape(current_fall.blocktype, current_fall.color, current_fall.x_pos + numstates[numpos].x_shift, numstates[numpos].fallindex - 1 + numstates[numpos].y_shift, rotations);
+		numstates[numpos].fallindex++;
+
+		if (numstates[numpos].fallindex > current_fall.y_stop)
+		{
+			numstates[numpos].fallindex = 0;
+			numstates[numpos].blockindex++;
+		}
+	}
+
+	// Draw already dropped shapes
+	if (numstates[numpos].blockindex > 0)
+	{
+		for (int i = 0; i < numstates[numpos].blockindex; i++)
+		{
+			fall_instr fallen_block = getFallinstrByNum(numstates[numpos].num_to_draw, i);
+			drawShape(fallen_block.blocktype, fallen_block.color, fallen_block.x_pos + numstates[numpos].x_shift, fallen_block.y_stop - 1 + numstates[numpos].y_shift, fallen_block.num_rot);
+		}
+	}
+}
+
 // *********************************************************************
 // Main function that handles the drawing of all numbers
 // *********************************************************************
 void drawNumbers()
 {
-	// For each number position
-	for (int numpos = 0; numpos < SIZE_NUM_STATES; numpos++)
+	// For each temperature position
+	for (int numpos = 4; numpos < SIZE_NUM_STATES; numpos++)
 	{
+		drawSingleNumber(numpos);
+	}
 
-		// Draw falling shape
-		if (numstates[numpos].blockindex < getBocksizeByNum(numstates[numpos].num_to_draw))
-		{
-			fall_instr current_fall = getFallinstrByNum(numstates[numpos].num_to_draw, numstates[numpos].blockindex);
+	// Draw dot
+	display.fillRect(15, 30, 2, 2, myWHITE);
 
-			// Handle variations of rotations
-			uint8_t rotations = current_fall.num_rot;
-			if (rotations == 1)
-			{
-				if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 2))
-				{
-					rotations = 0;
-				}
-			}
-			if (rotations == 2)
-			{
-				if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 3))
-				{
-					rotations = 0;
-				}
-				if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 3 * 2))
-				{
-					rotations = 1;
-				}
-			}
-			if (rotations == 3)
-			{
-				if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 4))
-				{
-					rotations = 0;
-				}
-				if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 4 * 2))
-				{
-					rotations = 1;
-				}
-				if (numstates[numpos].fallindex < (int)(current_fall.y_stop / 4 * 3))
-				{
-					rotations = 2;
-				}
-			}
 
-			drawShape(current_fall.blocktype, current_fall.color, current_fall.x_pos + numstates[numpos].x_shift, numstates[numpos].fallindex - 1 + numstates[numpos].y_shift, rotations);
-			numstates[numpos].fallindex++;
+	// Draw black background for time to avoid overlapping
+	display.fillRect(0, 0, 32, 16, myBLACK);
 
-			if (numstates[numpos].fallindex > current_fall.y_stop)
-			{
-				numstates[numpos].fallindex = 0;
-				numstates[numpos].blockindex++;
-			}
-		}
-
-		// Draw already dropped shapes
-		if (numstates[numpos].blockindex > 0)
-		{
-			for (int i = 0; i < numstates[numpos].blockindex; i++)
-			{
-				fall_instr fallen_block = getFallinstrByNum(numstates[numpos].num_to_draw, i);
-				drawShape(fallen_block.blocktype, fallen_block.color, fallen_block.x_pos + numstates[numpos].x_shift, fallen_block.y_stop - 1 + numstates[numpos].y_shift, fallen_block.num_rot);
-			}
-		}
+	// For each number position
+	for (int numpos = 0; numpos < 3; numpos++)
+	{
+		drawSingleNumber(numpos);
 	}
 
 	// Hour / minutes divider (blinking)
