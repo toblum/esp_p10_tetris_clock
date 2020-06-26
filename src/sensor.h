@@ -34,3 +34,22 @@ void updateTemperature()
         temperatureSamples.add(tempC);
     }
 }
+
+String getTemperatureString() {
+    float tempC = temperatureSamples.getMedian() * 10;
+    int tempCent = (int) tempC;
+    String tempString = String(tempCent);
+
+    int len = tempString.length();
+    if (len > 3) {
+        tempString = tempString.substring(len-3, len);
+    }
+    if (len == 2) {
+        tempString = " " + tempString;
+    }
+    if (len == 1) {
+        tempString = " 0" + tempString;
+    }
+    // Serial.println(tempString + "C");
+    return tempString + "C";
+}

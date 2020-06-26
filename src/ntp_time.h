@@ -26,7 +26,14 @@ void updateTime(String str_current_time)
 	{
 		if (str_display_time.charAt(pos) != str_current_time.charAt(pos))
 		{
-			int number = str_current_time.substring(pos, pos + 1).toInt();
+			String character = str_current_time.substring(pos, pos + 1);
+			int number = character.toInt();
+			if (character == " ") {
+				number = 10;
+			}
+			if (character == "C") {
+				number = 11;
+			}
 			setTimeNumber(pos, number);
 		}
 	}

@@ -17,17 +17,17 @@ void drawChar(String letter, uint8_t x, uint8_t y, uint16_t color)
 // *********************************************************************
 void drawIntro()
 {
-	drawChar("T", 0, 0, myCYAN);
-	drawChar("e", 5, 0, myMAGENTA);
-	drawChar("t", 11, 0, myYELLOW);
-	drawChar("r", 17, 0, myGREEN);
-	drawChar("i", 22, 0, myBLUE);
-	drawChar("s", 26, 0, myRED);
+	drawChar("T", 0, 9, myCYAN);
+	drawChar("e", 5, 9, myMAGENTA);
+	drawChar("t", 11, 9, myYELLOW);
+	drawChar("r", 17, 9, myGREEN);
+	drawChar("i", 22, 9, myBLUE);
+	drawChar("s", 26, 9, myRED);
 
-	drawChar("T", 6, 9, myRED);
-	drawChar("i", 11, 9, myWHITE);
-	drawChar("m", 16, 9, myCYAN);
-	drawChar("e", 22, 9, myMAGENTA);
+	drawChar("T", 6, 18, myRED);
+	drawChar("i", 11, 18, myWHITE);
+	drawChar("m", 16, 18, myCYAN);
+	drawChar("e", 22, 18, myMAGENTA);
 }
 
 // *********************************************************************
@@ -242,6 +242,14 @@ fall_instr getFallinstrByNum(int num, int blockindex)
 	{
 		return num_9[blockindex];
 	}
+	if (num == 10)
+	{
+		return num_10[blockindex];
+	}
+	if (num == 11)
+	{
+		return num_11[blockindex];
+	}
 	return num_0[blockindex];
 }
 
@@ -285,6 +293,14 @@ int getBocksizeByNum(int num)
 	if (num == 9)
 	{
 		return SIZE_NUM_9;
+	}
+	if (num == 10)
+	{
+		return SIZE_NUM_10;
+	}
+	if (num == 11)
+	{
+		return SIZE_NUM_11;
 	}
 	return SIZE_NUM_0;
 }
