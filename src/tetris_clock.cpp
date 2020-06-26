@@ -95,7 +95,7 @@ void loop()
 	// Everything ready, check for time change
 	if (init_state == 3)
 	{
-		String str_current_time = getTimeAsString();
+		String str_current_time = getTimeAsString() + getTemperatureString();
 
 		// Time has changed
 		if (str_display_time != str_current_time)
@@ -104,7 +104,7 @@ void loop()
 
 			Serial.print("Time changed: ");
 			Serial.println(str_current_time);
-			updateTime(str_current_time + getTemperatureString());
+			updateTime(str_current_time);
 			str_display_time = str_current_time;
 		}
 
