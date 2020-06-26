@@ -1,15 +1,18 @@
 #define double_buffer
 #include <Wire.h>
 #include <Ticker.h>
-#include <PxMatrix.h> // Download from: https://github.com/2dom/PxMatrix/, needs https://github.com/adafruit/Adafruit-GFX-Library via library manager
+#include <PxMatrix.h> 			// Download from: https://github.com/2dom/PxMatrix/, needs https://github.com/adafruit/Adafruit-GFX-Library via library manager
 #include <TimeLib.h>
-#include <NtpClientLib.h> // https://github.com/gmag11/NtpClient via library manager
+#include <NtpClientLib.h>		// https://github.com/gmag11/NtpClient via library manager
 #include <ESP8266WiFi.h>
 
 // WiFi-Manager
-#include <DNSServer.h>		  // Local DNS Server used for redirecting all requests to the configuration portal
-#include <ESP8266WebServer.h> // Local WebServer used to serve the configuration portal
-#include <WiFiManager.h>	  // https://github.com/tzapu/WiFiManager WiFi Configuration Magic
+#include <DNSServer.h>			// Local DNS Server used for redirecting all requests to the configuration portal
+#include <ESP8266WebServer.h>	// Local WebServer used to serve the configuration portal
+#include <WiFiManager.h>		// https://github.com/tzapu/WiFiManager WiFi Configuration Magic
+#include <OneWire.h>
+#include <DallasTemperature.h>	// https://github.com/milesburton/Arduino-Temperature-Control-Library
+#include <RunningMedian.h>		// https://github.com/RobTillaart/Arduino/tree/master/libraries/RunningMedian
 
 // Local includes
 #include "definitions.h"
@@ -17,6 +20,8 @@
 #include "numbers.h"
 #include "drawing.h"
 #include "ntp_time.h"
+#include "sensor.h"
+
 
 // ****************************************************************
 // * Setup
@@ -28,8 +33,13 @@ void setup()
 	display.begin(16);
 	display.flushDisplay();
 
+	// Start up the DallasTemperature library
+	sensors.begin();
+	sensors.setWaitForConversion(false);
+
 	// Draw intro while WiFi is connecting
 	drawIntro();
+	display.showBuffer();
 
 	// Connect to WiFi using WiFiManager
 	// wifiManager.resetSettings();       // Reset WiFiManager settings, uncomment if needed
@@ -90,6 +100,8 @@ void loop()
 		// Time has changed
 		if (str_display_time != str_current_time)
 		{
+			updateTemperature();
+
 			Serial.print("Time changed: ");
 			Serial.println(str_current_time);
 			updateTime(str_current_time + "4560");
@@ -98,7 +110,6 @@ void loop()
 
 		if (now > nextNumberUpdate) {
 			number_updater();
-
 			nextNumberUpdate = now + 100;
 		}
 	}

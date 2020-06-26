@@ -206,10 +206,6 @@ void drawShape(int blocktype, uint16_t color, int x_pos, int y_pos, int num_rot)
 // *********************************************************************
 fall_instr getFallinstrByNum(int num, int blockindex)
 {
-	if (num == 0)
-	{
-		return num_0[blockindex];
-	}
 	if (num == 1)
 	{
 		return num_1[blockindex];
@@ -246,6 +242,7 @@ fall_instr getFallinstrByNum(int num, int blockindex)
 	{
 		return num_9[blockindex];
 	}
+	return num_0[blockindex];
 }
 
 // *********************************************************************
@@ -253,10 +250,6 @@ fall_instr getFallinstrByNum(int num, int blockindex)
 // *********************************************************************
 int getBocksizeByNum(int num)
 {
-	if (num == 0)
-	{
-		return SIZE_NUM_0;
-	}
 	if (num == 1)
 	{
 		return SIZE_NUM_1;
@@ -293,6 +286,7 @@ int getBocksizeByNum(int num)
 	{
 		return SIZE_NUM_9;
 	}
+	return SIZE_NUM_0;
 }
 
 void drawSingleNumber(int numpos)
@@ -397,7 +391,7 @@ void drawNumbers()
 void display_updater()
 {
 	// ISR for display refresh
-	display.display(60);
+	display.display(70);
 }
 
 // *********************************************************************

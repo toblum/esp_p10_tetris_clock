@@ -11,9 +11,10 @@ int8_t minutesTimeZone = 0;     // Minutes difference for time zone
 // Globals
 uint8_t init_state = 0;         // Hold the current state of the initialization process
 String str_display_time = "0000"; // Holds the currently displayed time as string
+String str_display_temp = "    "; // Holds the currently displayed temp as string
 bool seconds_odd = false;       // True when the seconds are currently odd
-unsigned long nextDisplayUpdate = millis();
 unsigned long nextNumberUpdate = millis();
+unsigned long nextTemperatureUpdate = millis();
 
 // WiFiManager
 WiFiManager wifiManager;        // Global WiFiManager object
@@ -21,6 +22,10 @@ WiFiManager wifiManager;        // Global WiFiManager object
 #define AP_PASS "tetromino"
 #define AP_TIMEOUT 300
 
+// Temperature sensor
+OneWire oneWire(3); // RX == 3
+DallasTemperature sensors(&oneWire);
+RunningMedian temperatureSamples = RunningMedian(5);
 
 // Pins for LED MATRIX
 #define PxMATRIX_double_buffer true
