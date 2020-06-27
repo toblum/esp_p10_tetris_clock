@@ -32,6 +32,7 @@ void setup()
 
 	display.begin(16);
 	display.flushDisplay();
+	display.setTextWrap(false);
 
 	// Start up the DallasTemperature library
 	sensors.begin();
@@ -102,7 +103,7 @@ void loop()
 		{
 			updateTemperature();
 
-			Serial.print("Time changed: ");
+			Serial.print("Display changed: ");
 			Serial.println(str_current_time);
 			updateTime(str_current_time);
 			str_display_time = str_current_time;

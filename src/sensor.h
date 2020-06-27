@@ -36,9 +36,9 @@ void updateTemperature()
 }
 
 String getTemperatureString() {
-    float tempC = temperatureSamples.getMedian() * 10;
+    float tempC = temperatureSamples.getAverage() * 10;
     int tempCent = (int) tempC;
-    String tempString = String(tempCent);
+    String tempString = String(abs(tempCent));
 
     int len = tempString.length();
     if (len > 3) {

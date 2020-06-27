@@ -17,17 +17,17 @@ void drawChar(String letter, uint8_t x, uint8_t y, uint16_t color)
 // *********************************************************************
 void drawIntro()
 {
-	drawChar("T", 0, 9, myCYAN);
-	drawChar("e", 5, 9, myMAGENTA);
-	drawChar("t", 11, 9, myYELLOW);
-	drawChar("r", 17, 9, myGREEN);
-	drawChar("i", 22, 9, myBLUE);
-	drawChar("s", 26, 9, myRED);
+	drawChar("T", 0, 8, myCYAN);
+	drawChar("e", 5, 8, myMAGENTA);
+	drawChar("t", 11, 8, myYELLOW);
+	drawChar("r", 17, 8, myGREEN);
+	drawChar("i", 22, 8, myBLUE);
+	drawChar("s", 27, 8, myRED);
 
-	drawChar("T", 6, 18, myRED);
-	drawChar("i", 11, 18, myWHITE);
-	drawChar("m", 16, 18, myCYAN);
-	drawChar("e", 22, 18, myMAGENTA);
+	drawChar("T", 6, 19, myRED);
+	drawChar("i", 11, 19, myWHITE);
+	drawChar("m", 16, 19, myCYAN);
+	drawChar("e", 22, 19, myMAGENTA);
 }
 
 // *********************************************************************
