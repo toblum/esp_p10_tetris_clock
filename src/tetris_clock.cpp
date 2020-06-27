@@ -36,7 +36,8 @@ void setup()
 
 	// Start up the DallasTemperature library
 	sensors.begin();
-	sensors.setWaitForConversion(false);
+	// sensors.setWaitForConversion(false);
+	sensors.requestTemperatures();
 
 	// Draw intro while WiFi is connecting
 	drawIntro();

@@ -6,8 +6,8 @@ float readTemperature(int index_sensor = 0)
     Serial.flush();
     Serial.end();
 
-    float tempC = sensors.getTempCByIndex(0);
     sensors.requestTemperatures();
+    float tempC = sensors.getTempCByIndex(0);
 
     Serial.begin(115200);
     Serial.flush();
