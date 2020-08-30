@@ -3,7 +3,7 @@ A tetris clock based on a 16x32 RGB matrix and a ESP8266.
 
 
 [![alt text](https://j.gifs.com/6RvBDl.gif "Tetris clock animation")](https://youtu.be/BGmjvfqf_0U)
-![alt text](http://i68.tinypic.com/2cyfj45.jpg "Tetris clock build")
+![alt text](https://github.com/toblum/esp_p10_tetris_clock/blob/master/assets/tetris_ribba.gif "Tetris clock build in IKEA RIBBA frame")
 
 
 Note: Please also have a look on the https://github.com/toblum/TetrisAnimation repo. Brian Lough ported this code to a library and also added text support [in this video](https://www.youtube.com/watch?v=2IejVgrSlWE).
