@@ -9,6 +9,9 @@ A tetris clock based on a 16x32 RGB matrix and a ESP8266.
 Note: Please also have a look on the https://github.com/toblum/TetrisAnimation repo. Brian Lough ported this code to a library and also added text support [in this video](https://www.youtube.com/watch?v=2IejVgrSlWE).
 
 
+This is the first implementation of the Tetris Clock on a RGB matrix. It uses the ESP8266 that was the only option at that time. The code was ported to [ESP32](https://github.com/witnessmenow/WiFi-Tetris-Clock) by Brian Lough. He also has a version based on the fast [ESP32-HUB75-MatrixPanel-I2S-DMA](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA) library that you can [easily install using a web flasher](https://www.youtube.com/watch?v=xjTACT1qO_8). Maybe you want to have a look here, if you have a ESP32 at hand.
+
+
 ## Installation
 This project is built on [platform.io](http://docs.platformio.org). All dependencies are automatically installed, if you use it. I recommend to use it [together with Visual Studio Code](http://docs.platformio.org/en/latest/ide/vscode.html).
 
